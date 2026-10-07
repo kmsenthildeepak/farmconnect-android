@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/farm_green"
+        android:title="Checkout"
+        app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+        app:titleTextColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping Address"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/shippingAddressInput"
+            style="@style/RegisterField"
+            android:hint="Enter full delivery address"
+            android:minLines="3"
+            android:gravity="top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Contact Mobile Number"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/contactPhoneInput"
+            style="@style/RegisterField"
+            android:hint="10-digit mobile number"
+            android:inputType="phone"
+            android:maxLength="10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Payment Method"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/paymentGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/paymentCod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Cash on Delivery" />
+
+            <RadioButton
+                android:id="@+id/paymentUpi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPI" />
+
+            <RadioButton
+                android:id="@+id/paymentCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Card" />
+
+        </RadioGroup>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/placeOrderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/farm_green"
+            android:padding="14dp"
+            android:text="Place Order"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</LinearLayout>

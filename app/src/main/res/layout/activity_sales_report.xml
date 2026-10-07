@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/farm_green"
+            android:title="Sales Report"
+            app:navigationIcon="@drawable/ic_back"
+            app:titleTextColor="@color/white" />
+
+        <!-- Four period summary cards, always "as of now" regardless of the custom date filter below -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/cardToday" style="@style/SalesPeriodCard">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TODAY" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/todayOrders" style="@style/SalesPeriodValue" />
+                <TextView android:id="@+id/todayRevenue" style="@style/SalesPeriodSub" />
+                <TextView android:id="@+id/todayUnits" style="@style/SalesPeriodSub" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/cardWeekly" style="@style/SalesPeriodCard">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="THIS WEEK" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/weeklyOrders" style="@style/SalesPeriodValue" />
+                <TextView android:id="@+id/weeklyRevenue" style="@style/SalesPeriodSub" />
+                <TextView android:id="@+id/weeklyUnits" style="@style/SalesPeriodSub" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
+
+            <LinearLayout android:id="@+id/cardMonthly" style="@style/SalesPeriodCard">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="THIS MONTH" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/monthlyOrders" style="@style/SalesPeriodValue" />
+                <TextView android:id="@+id/monthlyRevenue" style="@style/SalesPeriodSub" />
+                <TextView android:id="@+id/monthlyUnits" style="@style/SalesPeriodSub" />
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/cardYearly" style="@style/SalesPeriodCard">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="THIS YEAR" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/yearlyOrders" style="@style/SalesPeriodValue" />
+                <TextView android:id="@+id/yearlyRevenue" style="@style/SalesPeriodSub" />
+                <TextView android:id="@+id/yearlyUnits" style="@style/SalesPeriodSub" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Custom date range -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Custom date range"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/startDateButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/chip_bg"
+                        android:text="Start Date"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp" />
+
+                    <Button
+                        android:id="@+id/endDateButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/chip_bg"
+                        android:text="End Date"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/viewReportButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/farm_green"
+                    android:text="View Report"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/clearRangeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:backgroundTint="@color/chip_bg"
+                    android:text="Clear (show all-time)"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+            android:id="@+id/salesProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/salesRangeLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="All-time summary"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/salesSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/farm_green_light"
+            android:padding="18dp"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/topProductsEmptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="No sales in this period yet."
+            android:textColor="@color/text_secondary"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/topProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

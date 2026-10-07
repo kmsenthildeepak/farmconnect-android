@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- ===================================================== -->
+        <!-- TITLE -->
+        <!-- ===================================================== -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Create your account"
+            android:textColor="@color/farm_green"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- ===================================================== -->
+        <!-- ROLE SELECTION -->
+        <!-- ===================================================== -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="I am a:"
+            android:textColor="@color/text_secondary"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/roleSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/farm_green" />
+
+        <!-- ===================================================== -->
+        <!-- BASIC USER INFORMATION -->
+        <!-- ===================================================== -->
+
+        <EditText
+            android:id="@+id/nameInput"
+            style="@style/RegisterField"
+            android:hint="Full Name" />
+
+        <EditText
+            android:id="@+id/emailInput"
+            style="@style/RegisterField"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            style="@style/RegisterField"
+            android:hint="Phone"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/passwordInput"
+            style="@style/RegisterField"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/confirmPasswordInput"
+            style="@style/RegisterField"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <!-- ===================================================== -->
+        <!-- ADDRESS -->
+        <!-- ===================================================== -->
+
+        <EditText
+            android:id="@+id/addressInput"
+            style="@style/RegisterField"
+            android:hint="Address" />
+
+        <EditText
+            android:id="@+id/cityInput"
+            style="@style/RegisterField"
+            android:hint="City" />
+
+        <EditText
+            android:id="@+id/stateInput"
+            style="@style/RegisterField"
+            android:hint="State" />
+
+        <EditText
+            android:id="@+id/pincodeInput"
+            style="@style/RegisterField"
+            android:hint="Pincode"
+            android:inputType="number" />
+
+        <!-- ===================================================== -->
+        <!-- FARMER-ONLY INFORMATION -->
+        <!-- ===================================================== -->
+
+        <LinearLayout
+            android:id="@+id/farmerFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Farm details"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/farmNameInput"
+                style="@style/RegisterField"
+                android:hint="Farm Name" />
+
+            <EditText
+                android:id="@+id/farmAddressInput"
+                style="@style/RegisterField"
+                android:hint="Farm Address" />
+
+        </LinearLayout>
+
+        <!-- ===================================================== -->
+        <!-- PROGRESS -->
+        <!-- ===================================================== -->
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <!-- ===================================================== -->
+        <!-- REGISTER BUTTON -->
+        <!-- ===================================================== -->
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/farm_green"
+            android:padding="14dp"
+            android:text="Register"
+            android:textColor="@color/white" />
+
+        <!-- ===================================================== -->
+        <!-- LOGIN LINK -->
+        <!-- ===================================================== -->
+
+        <TextView
+            android:id="@+id/loginLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:padding="8dp"
+            android:text="Already have an account? Login"
+            android:textColor="@color/farm_green" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/farm_green"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/farmconnect_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/dashboardScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <!-- Four primary stat cards, same visual concept as Sales Report's period cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/cardTotalUsers"
+                    style="@style/SalesPeriodCard"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL USERS" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/statTotalUsers" style="@style/SalesPeriodValue" android:textSize="22sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardTotalFarmers"
+                    style="@style/SalesPeriodCard"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FARMERS" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/statTotalFarmers" style="@style/SalesPeriodValue" android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/cardTotalCustomers"
+                    style="@style/SalesPeriodCard"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CUSTOMERS" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/statTotalCustomers" style="@style/SalesPeriodValue" android:textSize="22sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardTotalProducts"
+                    style="@style/SalesPeriodCard"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PRODUCTS" android:textColor="@color/farm_green_light" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/statTotalProducts" style="@style/SalesPeriodValue" android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Farmer search, same visual pattern as Sales Report's custom date-range card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Find a farmer"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/searchFarmerIdInput"
+                        style="@style/RegisterField"
+                        android:hint="Farmer ID"
+                        android:inputType="number"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_secondary" />
+
+                    <EditText
+                        android:id="@+id/searchFarmerEmailInput"
+                        style="@style/RegisterField"
+                        android:hint="or Farmer Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_secondary" />
+
+                    <Button
+                        android:id="@+id/searchFarmerButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/farm_green"
+                        android:text="Search"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Result: farmer details -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/farmerResultCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Farmer details"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/farmerResultDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/farmerSearchEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:textColor="@color/text_secondary"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/farmerProductsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Products"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/farmerProductsGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:padding="4dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
+
+    <!-- ============================================================ -->
+    <!-- Sidebar / navigation drawer - same custom-drawer pattern as   -->
+    <!-- CustomerHomeActivity / FarmerHomeActivity.                    -->
+    <!-- ============================================================ -->
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/drawer_bg"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/farm_green"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:padding="4dp"
+                    android:src="@drawable/farmconnect_logo" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Admin"
+                        android:textColor="@color/farm_green_light"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp">
+
+                <LinearLayout
+                    android:id="@+id/navTotalUsers"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_profile" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Total Users" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navFarmers"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_categories" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Farmers" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navCustomers"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_profile" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Customers" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navProducts"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_cart" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Products" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navOrders"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_orders" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Orders" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navPendingVerifications"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_reviews" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Pending Verifications" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/navNotifications"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_notifications" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Notifications" android:textColor="@color/text_primary" android:textSize="15sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="6dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:id="@+id/navLogout"
+                    style="@style/DrawerNavItem"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_logout" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="20dp" android:text="Logout" android:textColor="@color/error_red" android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

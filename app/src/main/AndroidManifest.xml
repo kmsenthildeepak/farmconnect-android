@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/farmconnect_icon"
+        android:label="FarmConnect"
+        android:theme="@style/Theme.FarmConnect"
+        android:usesCleartextTraffic="true">
+
+        <!-- usesCleartextTraffic is enabled so the app can talk to your local
+             Spring Boot backend over plain http://192.168.226.26:8080 during
+             development. Remove this (and switch to https) before any
+             real-world release. -->
+
+        <activity
+            android:name=".ui.common.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FarmConnect.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.auth.LoginActivity" android:exported="false" />
+        <activity android:name=".ui.auth.RegisterActivity" android:exported="false" />
+
+        <activity android:name=".ui.customer.CustomerHomeActivity" android:exported="false" />
+        <activity android:name=".ui.customer.ProductDetailActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CartActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CheckoutActivity" android:exported="false" />
+        <activity android:name=".ui.customer.OrderHistoryActivity" android:exported="false" />
+        <activity android:name=".ui.customer.OrderTrackingActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CustomerProfileActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CustomerAddressActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CustomerReviewsActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CategoriesActivity" android:exported="false" />
+        <activity android:name=".ui.customer.CustomerSettingsActivity" android:exported="false" />
+        <activity android:name=".ui.common.NotificationsActivity" android:exported="false" />
+
+        <activity android:name=".ui.farmer.FarmerHomeActivity" android:exported="false" />
+        <activity android:name=".ui.farmer.FarmerProfileActivity" android:exported="false" />
+        <activity android:name=".ui.farmer.ManageProductsActivity" android:exported="false" />
+        <activity android:name=".ui.farmer.AddEditProductActivity" android:exported="false" />
+        <activity android:name=".ui.farmer.FarmerOrdersActivity" android:exported="false" />
+        <activity android:name=".ui.farmer.SalesReportActivity" android:exported="false" />
+
+        <activity
+            android:name=".ui.admin.AdminDashboardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.admin.FarmerVerificationActivity" android:exported="false" />
+        <activity android:name=".ui.admin.AdminUsersActivity" android:exported="false" />
+        <activity android:name=".ui.admin.AdminFarmersActivity" android:exported="false" />
+        <activity android:name=".ui.admin.AdminCustomersActivity" android:exported="false" />
+        <activity android:name=".ui.admin.AdminProductsActivity" android:exported="false" />
+        <activity android:name=".ui.admin.AdminOrdersActivity" android:exported="false" />
+
+    </application>
+</manifest>
+
+
+
+
+
+

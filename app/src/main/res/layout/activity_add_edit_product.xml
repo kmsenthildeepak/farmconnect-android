@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/farm_green"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/productImagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@color/farm_green_light"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/pickImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/farm_amber"
+                android:text="Choose Product Photo"
+                android:textColor="@color/black" />
+
+            <EditText android:id="@+id/productNameInput" style="@style/RegisterField" android:hint="Product Name" />
+            <EditText android:id="@+id/productDescriptionInput" style="@style/RegisterField" android:hint="Description" android:minLines="2" android:gravity="top" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Category"
+                android:textColor="@color/text_secondary" />
+            <Spinner
+                android:id="@+id/categorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_field" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Unit"
+                android:textColor="@color/text_secondary" />
+            <Spinner
+                android:id="@+id/unitSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_field" />
+
+            <EditText android:id="@+id/productPriceInput" style="@style/RegisterField" android:hint="Price (₹)" android:inputType="numberDecimal" />
+            <EditText android:id="@+id/productQuantityInput" style="@style/RegisterField" android:hint="Quantity in stock" android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/organicCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="This product is organic" />
+
+            <Button
+                android:id="@+id/priceSuggestionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/farm_green_light"
+                android:text="Get AI Price Suggestion"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/priceSuggestionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/farm_green_dark"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/saveProductButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/farm_green"
+                android:padding="14dp"
+                android:text="Save Product"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

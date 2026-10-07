@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/farm_green"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/farmconnect_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/greeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/verificationBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/farm_amber"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/emptyState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="You haven't added any products yet.\nUse Manage My Products to add your first one."
+            android:textColor="@color/text_secondary"
+            android:visibility="gone" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/farmerProductGrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="6dp" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/drawer_bg"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/farm_green"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@color/white"
+                    android:contentDescription="@string/app_name"
+                    android:padding="4dp"
+                    android:src="@drawable/farmconnect_logo" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tagline"
+                        android:textColor="@color/farm_green_light"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drawerFarmerProfileRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_drawer_item_selected"
+                    android:contentDescription="@null"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_profile" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/drawerFarmerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Farmer"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="4dp"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="6dp">
+
+                <LinearLayout
+                    android:id="@+id/farmerNavHome"
+                    style="@style/DrawerNavItem"
+                    android:background="@drawable/bg_drawer_item_selected">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_home" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Home"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/farmerNavProducts"
+                    style="@style/DrawerNavItem">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_categories" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Manage My Products" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/farmerNavOrders"
+                    style="@style/DrawerNavItem">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_orders" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Orders" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/farmerNavSales"
+                    style="@style/DrawerNavItem">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_reviews" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Sales Report" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/farmerNavNotifications"
+                    style="@style/DrawerNavItem">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_notifications" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Notifications" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/farmerNavLogout"
+                    style="@style/DrawerNavItem"
+                    android:layout_marginTop="12dp">
+
+                    <ImageView
+                        style="@style/DrawerNavIcon"
+                        android:src="@drawable/ic_logout" />
+
+                    <TextView
+                        style="@style/DrawerNavText"
+                        android:text="Logout"
+                        android:textColor="@color/error_red" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/farm_green"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="Categories"
+        app:titleTextColor="@color/white" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/categoryTiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/catVegetables"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:tag="VEGETABLES"
+                android:text="Vegetables" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/catFruits"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="FRUITS"
+                android:text="Fruits" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/catGrains"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="GRAINS"
+                android:text="Grains" />
+
+            <!--
+                This tile is deliberately labeled "Other Products" rather
+                than "Organic Foods": it filters strictly by the backend's
+                OTHER category (GET /api/products/category/OTHER), the same
+                query the old "Other" chip used - not an isOrganic=true
+                filter. See CategoriesActivity for the matching tag.
+            -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/catOther"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tag="OTHER"
+                android:text="Other Products" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/categoriesEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="No products in this category yet."
+        android:textColor="@color/text_secondary"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/categoriesSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoriesProductGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

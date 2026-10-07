@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.FarmConnect" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/farm_green</item>
+        <item name="colorPrimaryVariant">@color/farm_green_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/farm_amber</item>
+        <item name="colorSecondaryVariant">@color/farm_amber</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/farm_green_dark</item>
+        <!--
+          Root-cause fix for input fields being unreadable (white text on
+          a white background, or vice versa, depending on the device's
+          system dark-mode setting): the previous DayNight parent let
+          Material's default text/hint colors flip based on the OS theme,
+          while our own windowBackground/bg_input_field colors stayed
+          fixed - on a device in system dark mode those two disagreed.
+          Switching to the plain (always-dark) MaterialComponents parent
+          plus these explicit attributes makes every EditText/
+          TextInputEditText in the app use the same readable colors
+          regardless of the device's system theme setting.
+        -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:editTextColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorControlActivated">@color/farm_green_light</item>
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="Theme.FarmConnect.Splash">
+        <item name="android:windowBackground">@color/farm_green</item>
+        <item name="android:statusBarColor">@color/farm_green_dark</item>
+    </style>
+
+    <style name="RegisterField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/bg_input_field</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+    </style>
+    <style name="DrawerNavItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">14dp</item>
+    </style>
+    <style name="SalesPeriodCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@color/card_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">14dp</item>
+    </style>
+    <style name="SalesPeriodValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="SalesPeriodSub">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DrawerNavIcon">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="DrawerNavText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>
